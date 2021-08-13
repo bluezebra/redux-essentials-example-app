@@ -6,7 +6,7 @@ import { postUpdated, selectPostById } from './postsSlice'
 export const EditPostForm = ({ match }) => {
     const { postId } = match.params
 
-    const post = useSelector((state) =>  selectPostById(state, postId))
+    const post = useSelector(state => selectPostById(state, postId))
 
     const [title, setTitle] = useState(post.title)
     const [content, setContent] = useState(post.content)
@@ -23,6 +23,14 @@ export const EditPostForm = ({ match }) => {
             history.push(`/posts/${postId}`)
         }
     }
+   
+//   if (!post) {
+//     return (
+//       <section>
+//         <h2>Post not found!</h2>
+//       </section>
+//     )
+//   }
 
     return (
         <section>
